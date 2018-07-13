@@ -21,7 +21,7 @@ To do this there are two convenience scripts:
 
 To execute the example just execute the create-script and then you can execute Flyway using Maven. Please take a look at the [POM-file](https://github.com/ThomasJaspers/db_flyway_sample/blob/master/pom.xml) to check the Flyway configuration.
 
-mvn clean compile flyway:migrate
+> mvn clean compile flyway:migrate
 
 ## Execution using the Command Line Tool
 
@@ -29,4 +29,4 @@ Install the Flyway Command Line Tool according to [these instructions](http://fl
 
 Then execute the following command from the command line. The configuration file [flyway.conf](https://github.com/ThomasJaspers/db_flyway_sample/blob/master/flyway.conf) contains all the needed configuration for execution from the command line. The good thing is that Flyway already comes with JDBC drivers for [a good amount of database systems](http://flywaydb.org/documentation/commandline/) including PostgreSQL. Thus there is no need to install anything in addition here.
 
-flyway migrate
+> flyway migrate

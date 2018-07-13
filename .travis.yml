@@ -16,4 +16,4 @@ install:
 
 script:
   - mvn clean compile flyway:migrate -P travis-ci
-  - mvn flyway:info
+  - mvn flyway:info -P travis-ci

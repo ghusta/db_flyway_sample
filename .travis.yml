@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+
+language: java
+
+before_install:
+  - docker --version
+  - docker pull postgres:latest
+  - docker run -d --name pg-flyway -p 5510:5432 -e POSTGRES_DB="flywaydemo" -e POSTGRES_USER="flywaydemo" -e POSTGRES_PASSWORD="flywaydemo123" postgres:latest
+  - docker ps
+
+install:
+  - mvn dependency:go-offline -B -V
+
+script:
+  - mvn clean compile flyway:migrate -P travis-ci
+  - mvn flyway:info

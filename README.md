@@ -1,5 +1,7 @@
 # db_flyway_sample
 
+[![Build Status](https://travis-ci.org/ghusta/db_flyway_sample.svg?branch=master)](https://travis-ci.org/ghusta/db_flyway_sample)
+
 This is an easy example how to create database migrations with [Flyway](http://flywaydb.org/)
 
 Please note that more information is given in the related blog articles on the topic:

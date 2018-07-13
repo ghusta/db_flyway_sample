@@ -11,17 +11,36 @@ create- and drop-scripts depending on your database configuration for the postgr
 Of course you can also easily switch the example to make use of another database by
 changing JDBC imports and URL.
 
+## Database initialisation
+
 As it is not possible to create a new database with Flyway this needs to be done
 outside of Flyway. The same is true for creating the database user that is used.
+
+### Method 1 : with psql client on existing server
+
 To do this there are two convenience scripts:
 * createDatabaseAndUser.sh
 * dropDatabaseAndUser.sh
+
+### Method 2 : using Docker
+
+Simply create a container which will create the needed database and user at start.
+
+> docker run -d --name pg-flyway -p 5510:5432 -e POSTGRES_DB="flywaydemo" -e POSTGRES_USER="flywaydemo" -e POSTGRES_PASSWORD="flywaydemo123" postgres:latest
 
 ## Execution using Maven
 
 To execute the example just execute the create-script and then you can execute Flyway using Maven. Please take a look at the [POM-file](./pom.xml) to check the Flyway configuration.
 
+> mvn flyway:info
+
 > mvn clean compile flyway:migrate
+
+The Flyway configuration is loaded from the [following order](https://flywaydb.org/documentation/maven/#overriding-order) (system properties first, then env vars, etc.).
+
+If we only want to apply a particular migration (let's say v1.1), we can specify it with :
+
+> mvn flyway:migrate -Dflyway.target=1.1
 
 ## Execution using the Command Line Tool
 

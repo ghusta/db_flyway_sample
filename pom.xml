@@ -7,6 +7,9 @@
     <artifactId>flywayMigration</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>flywayMigration</name>
+    <description>Flyway migration tests</description>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -14,6 +17,7 @@
         <flyway.version>5.1.4</flyway.version>
         <postgres.driver.version>42.2.3</postgres.driver.version>
 
+        <!-- default property values -->
         <database.url>jdbc:postgresql://localhost:5432/flywaydemo</database.url>
         <database.user>flywaydemo</database.user>
         <database.password>flywaydemo</database.password>
@@ -56,5 +60,25 @@
 
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>travis-ci</id>
+            <properties>
+                <database.url>jdbc:postgresql://localhost:5510/flywaydemo</database.url>
+                <database.user>flywaydemo</database.user>
+                <database.password>flywaydemo123</database.password>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>docker-vbox</id>
+            <properties>
+                <database.url>jdbc:postgresql://192.168.99.100:5510/flywaydemo</database.url>
+                <database.user>flywaydemo</database.user>
+                <database.password>flywaydemo123</database.password>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

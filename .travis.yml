@@ -3,6 +3,12 @@ sudo: required
 services:
   - docker
 
+# Installing a newer Docker version
+addons:
+  apt:
+    packages:
+      - docker-ce
+
 language: java
 
 before_install:

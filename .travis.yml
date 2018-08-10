@@ -24,5 +24,6 @@ script:
   - mvn compile
   - mvn flyway:info -P travis-ci
   - mvn flyway:baseline -Dflyway.baselineVersion=1.0 -P travis-ci
+  - mvn flyway:info -P travis-ci
   - mvn flyway:migrate -P travis-ci
   - mvn flyway:info -P travis-ci

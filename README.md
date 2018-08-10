@@ -7,16 +7,14 @@ This is an easy example how to create database migrations with [Flyway](http://f
 Please note that more information is given in the related blog articles on the topic:
 [Managing Database Migrations](https://blog.codecentric.de/en/2017/01/flyway-tutorial-managing-database-migrations/) and [Execute Migrations using Maven](https://blog.codecentric.de/en/2017/01/flyway-tutorial-execute-migrations-using-maven/)
 
-It is based on PostgreSQL database and should run right away after checking it out,
-if your postgres-server is up and running. You might need to add password to the
-create- and drop-scripts depending on your database configuration for the postgres-user.
-Of course you can also easily switch the example to make use of another database by
-changing JDBC imports and URL.
+It is based on PostgreSQL database and should run right away after checking it out, if your postgres-server is up and running. 
+You might need to add password to the create- and drop-scripts depending on your database configuration for the postgres-user.
+Of course you can also easily switch the example to make use of another database by changing JDBC imports and URL.
 
 ## Database initialisation
 
-As it is not possible to create a new database with Flyway this needs to be done
-outside of Flyway. The same is true for creating the database user that is used.
+As it is not possible to create a new database with Flyway this needs to be done outside of Flyway. 
+The same is true for creating the database user that is used.
 
 ### Method 1 : with psql client on existing server
 
@@ -48,6 +46,9 @@ If we only want to apply a particular migration (let's say v1.1), we can specify
 
 Install the Flyway Command Line Tool according to [these instructions](http://flywaydb.org/documentation/commandline/)
 
-Then execute the following command from the command line. The configuration file [flyway.conf](./flyway.conf) contains all the needed configuration for execution from the command line. The good thing is that Flyway already comes with JDBC drivers for [a good amount of database systems](http://flywaydb.org/documentation/commandline/) including PostgreSQL. Thus there is no need to install anything in addition here.
+Then execute the following command from the command line. 
+The configuration file [flyway.conf](./flyway.conf) contains all the needed configuration for execution from the command line. 
+The good thing is that Flyway already comes with JDBC drivers for [a good amount of database systems](http://flywaydb.org/documentation/commandline/) including PostgreSQL. 
+Thus there is no need to install anything in addition here.
 
 > flyway migrate

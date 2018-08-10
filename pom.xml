@@ -65,9 +65,9 @@
         <profile>
             <id>travis-ci</id>
             <properties>
-                <database.url>jdbc:postgresql://localhost:5510/flywaydemo</database.url>
-                <database.user>flywaydemo</database.user>
-                <database.password>flywaydemo123</database.password>
+                <database.url>jdbc:postgresql://localhost:5520/world-db</database.url>
+                <database.user>world</database.user>
+                <database.password>world123</database.password>
             </properties>
         </profile>
 

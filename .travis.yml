@@ -7,13 +7,16 @@ language: java
 
 before_install:
   - docker --version
-  - docker pull postgres:latest
-  - docker run -d --name pg-flyway -p 5510:5432 -e POSTGRES_DB="flywaydemo" -e POSTGRES_USER="flywaydemo" -e POSTGRES_PASSWORD="flywaydemo123" postgres:latest
+  - docker pull ghusta/postgres-world-db:2.2
+  - docker run -d --name pg-flyway-world-db -p 5520:5432 ghusta/postgres-world-db:2.2
   - docker ps
 
 install:
   - mvn dependency:go-offline -B -V
 
 script:
-  - mvn clean compile flyway:migrate -P travis-ci
+  - mvn compile
+  - mvn flyway:info -P travis-ci
+  - mvn flyway:baseline -Dflyway.baselineVersion=1.0 -P travis-ci
+  - mvn flyway:migrate -P travis-ci
   - mvn flyway:info -P travis-ci

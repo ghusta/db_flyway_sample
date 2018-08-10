@@ -71,12 +71,15 @@
             </properties>
         </profile>
 
+        <!-- Docker : docker run -d -p 5520:5432 ghusta/postgres-world-db:2.2 -->
+        <!-- Execute Flyway:baseline : -->
+        <!-- mvn flyway:baseline -Dflyway.baselineVersion=1.0 -->
         <profile>
             <id>docker-vbox</id>
             <properties>
-                <database.url>jdbc:postgresql://192.168.99.100:5510/flywaydemo</database.url>
-                <database.user>flywaydemo</database.user>
-                <database.password>flywaydemo123</database.password>
+                <database.url>jdbc:postgresql://192.168.99.100:5520/world-db</database.url>
+                <database.user>world</database.user>
+                <database.password>world123</database.password>
             </properties>
         </profile>
     </profiles>

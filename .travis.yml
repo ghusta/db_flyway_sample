@@ -13,8 +13,8 @@ language: java
 
 before_install:
   - docker --version
-  - docker pull ghusta/postgres-world-db:2.2
-  - docker run -d --name pg-flyway-world-db -p 5520:5432 ghusta/postgres-world-db:2.2
+  - docker pull ghusta/postgres-world-db:latest
+  - docker run -d --name pg-flyway-world-db -p 5520:5432 ghusta/postgres-world-db:latest
   - docker ps
 
 install:

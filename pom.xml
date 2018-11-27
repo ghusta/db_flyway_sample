@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <flyway.version>5.2.1</flyway.version>
+        <flyway.version>5.2.3</flyway.version>
         <postgres.driver.version>42.2.5</postgres.driver.version>
 
         <!-- default property values -->
